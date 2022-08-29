@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bingo!</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="module" defer src="main.js"></script>
+</head>
+<body>
+    <div id="win-board" class="invisible">
+        <h1 class="text-xxl">🏆 You Won! 🏆</h1>
+        <a id="win-button-reset" class="button button-red">Reset the board</a>
+    </div>
+    <div id="content">
+        <div id="menu">
+            <p id="menu-title">⚀ Bingo!</p>
+            <a id="menu-close">X</a>
+        </div>
+        <div id="centerer">
+            <div id="cards-panel" class="invisible">
+            </div>
+        </div>
+        <div id="sidebar">
+            <div>
+                <h1 class="text-center"><span class="text-blue">Bingo</span> by lifelessPixels</h1>
+                <p class="text-center">Right click on a card to change it's caption!</p>
+                <p class="text-center text-xxl text-blue">⚀⚅</p>
+                <a id="button-reset" class="button button-red">Reset the board</a>
+                <a id="button-randomize" class="button button-blue">Randomize the board</a>
+            </div>
+            <div id="card-edit" class="invisible">
+                <h2>Edit caption for selected card:</h2>
+                <input id="card-edit-input" type="text" placeholder="Card text">
+                <div id="card-edit-buttons">
+                    <a id="card-edit-save" class="button button-blue">Save</a>
+                    <a id="card-edit-cancel" class="button button-red">Cancel</a>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+</body>
+</html>

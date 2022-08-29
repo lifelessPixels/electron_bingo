@@ -1,0 +1,225 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --text-default-color: white;
+    --background-color: #1a1a1a;
+    --card-color-inactive: #305375;
+    --card-color-active: #0468cc;
+    --close-button-color: #bf2626;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    font-family: "Nunito", sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-default-color);
+    user-select: none;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0px
+}
+
+#content {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 8fr 7fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas: "menu menu" 
+                         "cards card-inputs";
+}
+
+#menu {
+    -webkit-app-region: drag;
+    grid-area: menu;
+    font-weight: bold;
+    background-color: var(--card-color-active);
+    display: flex;
+    justify-content: space-between;
+    height: 1.75em;
+}
+
+#menu-title {
+    margin: .25em .5em;
+}
+
+#menu-close {
+    -webkit-app-region: none;
+    padding: .25em 1.5em;
+    font-weight: lighter;
+    background-color: var(--card-color-active);
+    transition: background-color 100ms ease-in-out;
+}
+
+#menu-close:hover {
+    background-color: #bf2626;
+}
+
+#centerer {
+    width: 100%;
+    height: 100%;
+    grid-area: cards;
+    display: flex;
+    align-items: center;
+    padding-left: .5em;
+}
+
+#cards-panel {
+    padding: 1em;
+    display: grid;
+    grid-template-columns: repeat(5, 16vh);
+    grid-auto-rows: 16vh;
+    gap: 1em;
+    transition: opacity 250ms ease-in-out;
+}
+
+.card {
+    padding: .5em;
+    border-radius: .5em;
+    cursor: pointer;
+    transition: transform 100ms ease-in-out;
+}
+
+.card p {
+    text-align: center;
+    word-wrap: break-all;
+    white-space: normal;
+    overflow-wrap: break-word;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card-inactive {
+    background-color: var(--card-color-inactive);
+}
+
+.card-active {
+    background-color: var(--card-color-active);
+}
+
+.card-active > p {
+    text-decoration: line-through;
+}
+
+.card-editing {
+    border: 2px dotted white;
+    transform: scale(1.05);
+}
+
+#sidebar {
+    grid-area: card-inputs;
+    padding: 1.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#card-edit-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .5em;
+}
+
+#card-edit-input {
+    margin-top: .5em;
+    padding: .5em;
+    width: 100%;
+    color: white;
+    background-color: var(--background-color);
+    border-radius: .25em;
+    outline: none;
+    border: 2px solid var(--card-color-active);
+    transition: border 150ms ease-in-out;
+}
+
+#card-edit-input::placeholder {
+    color: rgb(182, 182, 182);
+}
+
+#card-edit-input:focus {
+    border: 2px solid #1886f5;
+}
+
+.button {
+    display: block;
+    margin-top: .5em;
+    padding: .25em;
+    width: 100%;
+    color: white;
+    background-color: var(--background-color);
+    border-radius: .25em;
+    outline: none;
+    text-align: center;
+    transition: transform 100ms ease-in-out;
+    cursor: pointer;
+}
+
+.button:hover {
+    transform: scale(1.03);
+}
+
+.button-blue {
+    background-color: var(--card-color-active);
+}
+
+.button-red {
+    background-color: var(--close-button-color);
+}
+
+
+#card-edit {
+    transition: opacity 100ms ease-in-out;
+}
+
+.invisible {
+    opacity: 0%;
+    visibility: hidden;
+}
+
+.text-blue {
+    color: var(--card-color-active);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-xxl {
+    font-size: 6em;
+    line-height: 1em;
+}
+
+#win-board {
+    padding: 3em 9.5em;
+    z-index: 99;
+    background-color: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(6px);
+    position: absolute;
+    top: 1.75em;
+    width: 100%;
+    height: calc(100% - 1.75em);
+    transition: opacity 250ms ease-in-out, visibility 250ms linear;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#win-board > h1 {
+    margin-top: 12rem;
+}
+
+#win-board > a {
+    margin-top: 2em;
+}
